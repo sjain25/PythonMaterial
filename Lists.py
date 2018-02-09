@@ -1,6 +1,6 @@
 ## LISTS
 # open & ends in [] brackets
-'''list = [1, 2, 3]
+list = [1, 2, 3]
 print(list)
 var = ['cats', 'dogs', 'elephants']
 print(var)
@@ -160,7 +160,7 @@ size, color, disposition = cat
 # The number of variables and the length of the list must be exactly equal,
 # or Python will give you a ValueError:
 cat = ['fat', 'orange', 'loud']
-size, color, disposition, name = cat
+# size, color, disposition, name = cat
 # ValueError: need more than 3 values to unpack
 
 # Swap with multiple assignment
@@ -357,7 +357,7 @@ cheese[1] = 42
 print(spam)
 # answer: ['A', 'B', 'C', 'D']
 print(cheese)
-# answer: ['A', 42, 'C', 'D']'''
+# answer: ['A', 42, 'C', 'D']
 
 ## PRACTISE PROJECT
 spam = []
