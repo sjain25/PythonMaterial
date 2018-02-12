@@ -13,7 +13,7 @@ print(spam[12345])
 spam = ['cats', 'dogs', 'moose']
 bacon = ['dogs', 'moose', 'cats']
 print(spam == bacon)
-# answe: False
+# answer: False
 eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}
 ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}
 print(eggs == ham)
@@ -157,15 +157,13 @@ print(' - Apple Pies     ' + str(totalBrought(allGuests, 'apple pies')))
 
 ## FANTACY GAME INVENTORY
 import pprint
-
 stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
 def displayInventory(inventory):
     print('Inventory:')
     item_total = 0
     for k, v in inventory.items():
+        print(str(v) + ' ' + k)
         item_total = item_total + v
-    return item_total
-    print(str(inventory))
     print("Total number of items: " + str(item_total))
 displayInventory(stuff)
 
