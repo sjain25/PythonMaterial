@@ -165,5 +165,23 @@ def displayInventory(inventory):
         print(str(v) + ' ' + k)
         item_total = item_total + v
     print("Total number of items: " + str(item_total))
-displayInventory(stuff)
+#displayInventory(stuff)
 
+## DRAGON_LOOT : addtoInventory
+# from collections import Counter
+from itertools import chain
+inv = {'gold coin': 42, 'rope': 1}
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+
+def addToInventory(inventory, addedItems):
+    # for converting list to dictionary
+    d = {x: addedItems.count(x) for x in addedItems}
+    # for merging & adding 2 dictionaries
+    z = {k: d.get(k, 0) + inventory.get(k, 0) for k in set(d) | set(inventory)}
+    #z = dict(chain(inventory.items(),d.items()))
+    #z = dict(d, **inventory)
+    #z.update(inventory)
+    return z
+
+inv = addToInventory(inv,dragonLoot)
+displayInventory(inv)
