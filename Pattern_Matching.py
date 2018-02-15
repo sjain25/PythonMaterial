@@ -228,3 +228,38 @@ The . matches any character, except newline characters.
 robocop = re.compile(r'robocop', re.I)
 mo1 = robocop.search('Robocop is part man, part machine, all cop.').group()
 print(mo1)
+
+## SUBSTITITING STRINGS WITH SUB() METHOD
+namesRegex = re.compile(r'Agent \w+')
+mo1 = namesRegex.sub('CENSORED', 'Agent Alice gave the secret documents to Agent Bob.')
+# CENSORED gave the secret documents to CENSORED.
+print(mo1)
+
+agentNamesRegex = re.compile(r'Agent (\w)\w*')
+# assigning * to censored information by using "r' String to be replaced followed by (\w)\w*'"
+# in sub() \1**** => 1st letter of string followed by ****
+mo1 = agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that Agent Eve knew Agent Bob was a double agent.')
+print(mo1)
+# A**** told C**** that E**** knew B**** was a double agent.'
+
+## Managing Complex Regexes
+# Using .VERBOSE for complicated Regexes to show in multiple lines
+phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?            # area code - xxx or (xxx) and optional
+    (\s|-|\.)?                    # separator - space or - or anything other then newline
+    \d{3}                         # first 3 digits
+    (\s|-|\.)                     # separator
+    \d{4}                         # last 4 digits
+    (\s*(ext|x|ext.)\s*\d{2,5})?  # extension
+    )''', re.VERBOSE)
+
+mo1 = phoneRegex.findall('Cell: 415-555-9999 Work: 212-555-0000 ext 00000')
+print(mo1)
+
+## Combining re.IGNORECASE, re.DOTALL, and re.VERBOSE
+# For regular expression that’s case-insensitive and includes newlines
+# to match the dot character, you would form your re.compile() call like this:
+someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE)
+
+
+
